@@ -13,7 +13,8 @@ public class JSONHelper {
 		} catch (JSONException e) {
 			json = null;
 		} catch (Exception e) {
-			return json;
+			json = null;
 		}
+		return json;
 	}
 }
