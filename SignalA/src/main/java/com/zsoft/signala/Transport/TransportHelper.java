@@ -116,7 +116,9 @@ public class TransportHelper {
             qs += "&connectionToken=" + URLEncoder.encode(connection.getConnectionToken(), "utf-8");
         } catch (UnsupportedEncodingException e) {
             Log.e(TAG, "Unsupported message encoding error, when encoding connectionToken.");
-        }
+        } catch (Exception e) {
+	    Log.e(TAG, "Exception: " + e.getMessage());
+	}
 
         if (connection.getGroupsToken() != null && connection.getGroupsToken().length() > 0)
         {
@@ -124,7 +126,9 @@ public class TransportHelper {
                 qs += "&groupsToken=" + URLEncoder.encode(connection.getGroupsToken(), "utf-8");
             } catch (UnsupportedEncodingException e) {
                 Log.e(TAG, "Unsupported message encoding error, when encoding groupsToken.");
-            }
+            } catch (Exception e) {
+	        Log.e(TAG, "Exception: " + e.getMessage());
+	    }
         }
 
         if (connectionData != null)
@@ -133,7 +137,9 @@ public class TransportHelper {
                 qs += "&connectionData=" + URLEncoder.encode(connectionData, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 Log.e(TAG, "Unsupported message encoding error, when encoding connectionData.");
-            }
+            }catch (Exception e) {
+	        Log.e(TAG, "Exception: " + e.getMessage());
+	    }
         }
 
         if(connection.getQueryString() != null && connection.getQueryString().length() > 0)
@@ -142,7 +148,9 @@ public class TransportHelper {
                 qs += "&" + URLEncoder.encode(connection.getQueryString(), "utf-8");
             } catch (UnsupportedEncodingException e) {
                 Log.e(TAG, "Unsupported message encoding error, when encoding querystring.");
-            }
+            }catch (Exception e) {
+	        Log.e(TAG, "Exception: " + e.getMessage());
+	    }
         }
 
         return qs;
@@ -173,7 +181,7 @@ public class TransportHelper {
 		{
 			try {
 				qs += "&messageId=" + URLEncoder.encode(connection.getMessageId(), "utf-8");
-			} catch (UnsupportedEncodingException e) {
+			} catch (Exception e) {
 				Log.e(TAG, "Unsupported message encoding error, when encoding messageid.");
 			}
 		}
@@ -182,7 +190,7 @@ public class TransportHelper {
         {
             try {
 				qs += "&groupsToken=" + URLEncoder.encode(connection.getGroupsToken(), "utf-8");
-			} catch (UnsupportedEncodingException e) {
+			} catch (Exception e) {
 				Log.e(TAG, "Unsupported message encoding error, when encoding groupsToken.");
 			}
         }
@@ -191,7 +199,7 @@ public class TransportHelper {
         {
             try {
 				qs += "&connectionData=" + URLEncoder.encode(data, "utf-8");
-			} catch (UnsupportedEncodingException e) {
+			} catch (Exception e) {
 				Log.e(TAG, "Unsupported message encoding error, when encoding connectionData.");
 			}
         }
@@ -200,7 +208,7 @@ public class TransportHelper {
         {
             try {
 				qs += "&" + URLEncoder.encode(connection.getQueryString(), "utf-8");
-			} catch (UnsupportedEncodingException e) {
+			} catch (Exception e) {
 				Log.e(TAG, "Unsupported message encoding error, when encoding querystring.");
 			}
         }
